@@ -43,6 +43,8 @@ int Save(int _key, char *file) {
     fprintf(OUTPUT_FILE, '%s', "[BACK]");
   else if(_key == VK_RETURN)
     fprintf(OUTPUT_FILE,'%s', "[RETURN]");
+  else if(_key == VK_ESCAPE)
+    fprintf(OUTPUT_FILE, '%s', "[ESCAPE]");
   else
     fprintf(OUTPUT_FILE, '%s', &_key);
   fclose(OUTPUT_FILE);
